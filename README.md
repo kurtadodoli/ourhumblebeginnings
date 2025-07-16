@@ -1,51 +1,58 @@
-# Our Humble Beginnings
+# Our Humble Beginnings 🏪☕
 
-A Flutter mobile application for "Our Humble Beginnings" - a cozy cafe, gift shop, and meeting room reservation system.
+A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy café, gift shop, and meeting room reservation system with vintage charm.
 
-## Features
+## ✨ Features
 
-### 🍽️ Cafe & Menu
-- Browse delicious food and beverages
-- Filter items by category (Beverages, Pastries, Breakfast, etc.)
-- Add items to cart and place orders
-- View detailed item descriptions and prices
+### ☕ Café & Menu
+- Browse delicious food and beverages with beautiful UI
+- Filter items by category (Coffee, Food, Desserts)
+- Shopping cart functionality
+- Vintage-themed design with warm colors
+- Real images from your café space
 
 ### 🎁 Gift Shop
 - Browse unique local products and merchandise
 - Categories include Coffee, Tea, Local Products, and Merchandise
-- Check stock availability
-- View detailed product information
+- Stock management and availability checking
+- Beautiful product displays
 
 ### 📅 Room Reservations
 - Book meeting rooms for various purposes
-- Available rooms:
-  - **Cozy Corner** - Perfect for intimate gatherings (6 people)
-  - **The Boardroom** - Professional meetings (12 people)
-  - **Garden View** - Creative sessions with natural light (8 people)
-  - **Community Space** - Large workshops and activities (20 people)
-
-### 🏢 Room Features
 - Interactive calendar for date selection
-- Time slot booking system
-- Real-time availability checking
-- Amenity information (WiFi, Projector, Whiteboard, etc.)
-- Customer details management
-- Special requests handling
+- Time slot booking system with real-time availability
+- Multiple room options with different capacities
+- Amenity information and special requests
 
-## Technical Features
+### 🔐 Authentication System
+- **User Accounts**: Full registration and login system
+- **Guest Mode**: Explore the app without signing up
+- **Supabase Integration**: Secure backend with PostgreSQL
+- **Profile Management**: User profiles and preferences
 
-- **Cross-platform**: Compatible with Android and iOS
-- **State Management**: Provider pattern for efficient state handling
-- **Navigation**: Go Router for declarative routing
-- **UI/UX**: Material Design 3 with custom theming
-- **Calendar Integration**: Table Calendar for booking management
-- **Responsive Design**: Optimized for mobile devices
+### 🖼️ Visual Experience
+- **Vintage Design**: Warm café-inspired color palette
+- **Real Images**: Your actual café photos in the app
+- **Logo Integration**: Your café logo prominently displayed
+- **Photo Gallery**: Showcase your cozy space
 
-## Project Structure
+## 🛠️ Technical Stack
+
+- **Flutter 3.29.2** with Dart 3.7.2
+- **Supabase + PostgreSQL** for backend and authentication
+- **Provider** for state management
+- **Go Router** for navigation
+- **Material Design 3** with custom vintage theming
+- **Table Calendar** for booking management
+- **Cross-platform** support for Android and iOS
+
+## 📱 Project Structure
 
 ```
 lib/
 ├── main.dart                    # App entry point and routing
+├── config/
+│   └── supabase_config.dart     # Backend configuration
 ├── models/                      # Data models
 │   ├── menu_item.dart
 │   ├── gift_shop_item.dart
@@ -53,90 +60,114 @@ lib/
 │   └── room.dart
 ├── providers/                   # State management
 │   ├── app_provider.dart
+│   ├── auth_provider.dart       # Authentication logic
 │   ├── cafe_provider.dart
 │   └── reservation_provider.dart
-└── screens/                     # UI screens
-    ├── home_screen.dart
-    ├── cafe_menu_screen.dart
-    ├── gift_shop_screen.dart
-    ├── reservations_screen.dart
-    └── booking_screen.dart
+├── screens/                     # UI screens
+│   ├── home_screen.dart         # Main landing page
+│   ├── login_screen.dart        # Authentication
+│   ├── cafe_menu_screen.dart
+│   ├── gift_shop_screen.dart
+│   ├── reservations_screen.dart
+│   └── booking_screen.dart
+└── utils/
+    └── theme.dart               # Vintage color theme
 ```
 
-## Dependencies
-
-- `provider` - State management
-- `go_router` - Navigation
-- `table_calendar` - Calendar widget for bookings
-- `intl` - Date formatting
-- `http` - API communication (future implementation)
-- `shared_preferences` - Local storage
-- `image_picker` - Image handling
-- `font_awesome_flutter` - Icons
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Flutter SDK (3.7.2 or higher)
 - Dart SDK
 - Android Studio / VS Code with Flutter extensions
-- Android device/emulator or iOS device/simulator
+- Supabase account (for backend)
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
-   cd our_humble_beginnings
+   git clone https://github.com/kurtadodoli/ourhumblebeginnings.git
+   cd ourhumblebeginnings
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
    ```bash
    flutter pub get
    ```
 
-3. Run the app:
+3. **Set up Supabase backend:**
+   - Follow the detailed instructions in `SUPABASE_SETUP.md`
+   - Update `lib/config/supabase_config.dart` with your credentials
+
+4. **Run the app:**
    ```bash
    flutter run
    ```
 
-## Development
+## 🔧 Backend Setup
 
-### Adding New Features
+This app uses **Supabase** for backend services. See `SUPABASE_SETUP.md` for:
+- Creating your Supabase project
+- Database schema setup
+- Authentication configuration
+- Row Level Security policies
+- Sample data insertion
 
-1. **New Screens**: Add screen files to `lib/screens/`
-2. **Data Models**: Add model classes to `lib/models/`
-3. **State Management**: Extend or create new providers in `lib/providers/`
-4. **Navigation**: Update routes in `main.dart`
+## 🎨 Design Philosophy
 
-### Code Style
+The app features a **vintage café aesthetic** inspired by warm, cozy coffee shop atmospheres:
+- **Color Palette**: Coffee browns, cream whites, and warm beiges
+- **Typography**: Clean, readable fonts with proper hierarchy
+- **Images**: Real photos from your café space
+- **User Experience**: Intuitive navigation with guest-friendly design
 
-- Follow Dart/Flutter conventions
-- Use meaningful variable and function names
-- Add documentation for complex functions
-- Implement proper error handling
+## 📋 Key Dependencies
 
-## Future Enhancements
+```yaml
+dependencies:
+  flutter: sdk
+  provider: ^6.1.2              # State management
+  go_router: ^14.2.0           # Navigation
+  supabase_flutter: ^2.3.4     # Backend & auth
+  table_calendar: ^3.0.9       # Calendar widget
+  image_picker: ^1.1.1         # Image handling
+  shared_preferences: ^2.2.3   # Local storage
+  intl: ^0.19.0                # Date formatting
+  http: ^1.2.1                 # HTTP requests
+```
 
-- [ ] User authentication and profiles
-- [ ] Online payment integration
+## 🔒 Security Features
+
+- **Row Level Security (RLS)** on all database tables
+- **Guest mode** for exploring without accounts
+- **Secure credential management**
+- **Input validation** and error handling
+- **Protected routes** for authenticated features
+
+## 🚧 Future Enhancements
+
+- [ ] Online payment integration (Stripe/PayPal)
 - [ ] Push notifications for reservations
-- [ ] Photo uploads for menu items and rooms
+- [ ] Admin dashboard for management
 - [ ] Reviews and ratings system
-- [ ] Loyalty program
-- [ ] Admin dashboard
-- [ ] API integration for backend services
+- [ ] Loyalty program and rewards
+- [ ] Social media integration
+- [ ] Advanced analytics
 - [ ] Offline mode support
+- [ ] Multi-language support
 
-## Screenshots
+## 📞 Support
 
-*Screenshots will be added once the app is running*
+For questions about setup or development:
+- Check `SUPABASE_SETUP.md` for backend setup
+- Review Flutter documentation for app development
+- Create GitHub issues for bugs or feature requests
 
-## Support
+## 📄 License
 
-For support or questions about the app, please contact the development team.
+This project is proprietary software for Our Humble Beginnings café.
 
-## License
+---
 
-This project is proprietary software for Our Humble Beginnings cafe.
+*Built with ❤️ for the Our Humble Beginnings community*
