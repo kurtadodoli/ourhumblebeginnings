@@ -43,9 +43,14 @@ class _BookingScreenState extends State<BookingScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFDF5), // Warm cream background - same as home
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Book a Room',
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF3C2A1E),
+            letterSpacing: -0.5,
+          ),
         ),
         backgroundColor: const Color(0xFFFAF0E6), // Linen background
         foregroundColor: const Color(0xFF3C2A1E),
@@ -65,7 +70,7 @@ class _BookingScreenState extends State<BookingScreen> {
           onPressed: () => context.go('/'),
         ),
       ),
-      body: Consumer<ReservationProvider>(
+        return Consumer<ReservationProvider>(
         builder: (context, provider, child) {
           return Form(
             key: _formKey,
@@ -115,20 +120,22 @@ class _BookingScreenState extends State<BookingScreen> {
                           color: const Color(0xFF8B4513).withOpacity(0.3),
                           shape: BoxShape.circle,
                         ),
-                        weekendTextStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: const Color(0xFF8B7355),
+                        weekendTextStyle: const TextStyle(
+                          color: Color(0xFF8B7355),
                         ),
-                        defaultTextStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: const Color(0xFF3C2A1E),
+                        defaultTextStyle: const TextStyle(
+                          color: Color(0xFF3C2A1E),
                         ),
                       ),
-                      headerStyle: HeaderStyle(
+                      headerStyle: const HeaderStyle(
                         formatButtonVisible: false,
                         titleCentered: true,
-                        titleTextStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: const Color(0xFF3C2A1E),
+                        titleTextStyle: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF3C2A1E),
                         ),
-                        leftChevronIcon: const Icon(
+                        leftChevronIcon: Icon(
                           Icons.chevron_left,
                           color: Color(0xFF8B4513),
                         ),
@@ -234,11 +241,12 @@ class _BookingScreenState extends State<BookingScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           'Number of people:',
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          style: TextStyle(
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
-                            color: const Color(0xFF3C2A1E),
+                            color: Color(0xFF3C2A1E),
                           ),
                         ),
                         Row(
@@ -261,9 +269,10 @@ class _BookingScreenState extends State<BookingScreen> {
                               ),
                               child: Text(
                                 '$_numberOfPeople',
-                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                style: const TextStyle(
+                                  fontSize: 18,
                                   fontWeight: FontWeight.w600,
-                                  color: const Color(0xFF3C2A1E),
+                                  color: Color(0xFF3C2A1E),
                                 ),
                               ),
                             ),
@@ -279,178 +288,139 @@ class _BookingScreenState extends State<BookingScreen> {
                     ),
                   ),
                 ),
-
-                const SizedBox(height: 32),
-
-                // Customer Details Section
-                if (_selectedRoom != null) ...[
-                  _buildVintageSection(
-                    context,
-                    title: 'Customer Details',
-                    icon: Icons.person_outlined,
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: const Color(0xFFE8DCC6),
-                          width: 2,
+                            IconButton(
+                              onPressed: _selectedRoom != null && _numberOfPeople < _selectedRoom!.capacity
+                                  ? () => setState(() => _numberOfPeople++)
+                                  : null,
+                              icon: const Icon(Icons.add),
+                            ),
+                          ],
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xFF8B4513).withOpacity(0.08),
-                            blurRadius: 8,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          _buildVintageTextField(
-                            controller: _nameController,
-                            label: 'Full Name',
-                            icon: Icons.person_outline,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your name';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 16),
-                          _buildVintageTextField(
-                            controller: _emailController,
-                            label: 'Email Address',
-                            icon: Icons.email_outlined,
-                            keyboardType: TextInputType.emailAddress,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your email';
-                              }
-                              if (!value.contains('@')) {
-                                return 'Please enter a valid email';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 16),
-                          _buildVintageTextField(
-                            controller: _phoneController,
-                            label: 'Phone Number',
-                            icon: Icons.phone_outlined,
-                            keyboardType: TextInputType.phone,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your phone number';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 16),
-                          _buildVintageTextField(
-                            controller: _purposeController,
-                            label: 'Purpose of Meeting',
-                            icon: Icons.business_center_outlined,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter the purpose';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 16),
-                          _buildVintageTextField(
-                            controller: _specialRequestsController,
-                            label: 'Special Requests (Optional)',
-                            icon: Icons.note_outlined,
-                            maxLines: 3,
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
                   ),
+                ),
+                const SizedBox(height: 24),
 
-                  const SizedBox(height: 32),
-
-                  // Booking Summary
-                  _buildVintageSection(
-                    context,
-                    title: 'Booking Summary',
-                    icon: Icons.receipt_outlined,
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: const Color(0xFFE8DCC6),
-                          width: 2,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xFF8B4513).withOpacity(0.08),
-                            blurRadius: 8,
-                            offset: const Offset(0, 2),
+                // Customer Details
+                _buildSectionTitle('Your Details'),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          controller: _nameController,
+                          decoration: const InputDecoration(
+                            labelText: 'Full Name',
+                            border: OutlineInputBorder(),
                           ),
-                        ],
-                      ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your name';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          controller: _emailController,
+                          decoration: const InputDecoration(
+                            labelText: 'Email',
+                            border: OutlineInputBorder(),
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            if (!value.contains('@')) {
+                              return 'Please enter a valid email';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          controller: _phoneController,
+                          decoration: const InputDecoration(
+                            labelText: 'Phone Number',
+                            border: OutlineInputBorder(),
+                          ),
+                          keyboardType: TextInputType.phone,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your phone number';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          controller: _purposeController,
+                          decoration: const InputDecoration(
+                            labelText: 'Purpose of Meeting',
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter the purpose of your meeting';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 16),
+                        TextFormField(
+                          controller: _specialRequestsController,
+                          decoration: const InputDecoration(
+                            labelText: 'Special Requests (Optional)',
+                            border: OutlineInputBorder(),
+                          ),
+                          maxLines: 3,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+
+                // Booking Summary
+                if (_selectedRoom != null) ...[
+                  _buildSectionTitle('Booking Summary'),
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _buildSummaryRow('Room', _selectedRoom!.name),
-                          _buildSummaryRow('Date', DateFormat('MMM dd, yyyy').format(_selectedDate)),
+                          _buildSummaryRow('Date', DateFormat('EEEE, MMMM dd, yyyy').format(_selectedDate)),
                           _buildSummaryRow('Time', '${_formatTimeOfDay(_startTime)} - ${_formatTimeOfDay(_endTime)}'),
-                          _buildSummaryRow('People', '$_numberOfPeople'),
                           _buildSummaryRow('Duration', '${_calculateDuration()} hours'),
-                          const Divider(color: Color(0xFFE8DCC6)),
+                          _buildSummaryRow('People', '$_numberOfPeople'),
+                          const Divider(),
                           _buildSummaryRow(
-                            'Total Cost', 
-                            '₱${_calculateTotalCost().toStringAsFixed(2)}',
+                            'Total Cost',
+                            '\$${_calculateTotalCost().toStringAsFixed(2)}',
                             isTotal: true,
                           ),
                         ],
                       ),
                     ),
                   ),
-
-                  const SizedBox(height: 32),
-
-                  // Book Button
-                  Container(
-                    width: double.infinity,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFF8B4513).withOpacity(0.3),
-                          blurRadius: 8,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: ElevatedButton(
-                      onPressed: _submitBooking,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF8B4513),
-                        foregroundColor: const Color(0xFFFAF0E6),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 0,
-                      ),
-                      child: Text(
-                        'Book Room',
-                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.5,
-                        ),
-                      ),
-                    ),
-                  ),
-
                   const SizedBox(height: 24),
                 ],
+
+                // Book Button
+                SizedBox(
+                  width: double.infinity,
+                  height: 48,
+                  child: ElevatedButton(
+                    onPressed: _selectedRoom != null ? () => _bookRoom(context, provider) : null,
+                    child: const Text('Book Room'),
+                  ),
+                ),
+                const SizedBox(height: 24),
               ],
             ),
           );
@@ -459,43 +429,15 @@ class _BookingScreenState extends State<BookingScreen> {
     );
   }
 
-  // Helper methods
-  Widget _buildVintageSection(
-    BuildContext context, {
-    required String title,
-    required IconData icon,
-    required Widget child,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF8B4513).withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(
-                  icon,
-                  size: 20,
-                  color: const Color(0xFF8B4513),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Text(
-                title,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 12),
-        child,
-      ],
+  Widget _buildSectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+      ),
     );
   }
 
@@ -597,9 +539,10 @@ class _BookingScreenState extends State<BookingScreen> {
                       Expanded(
                         child: Text(
                           room.name,
-                          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          style: const TextStyle(
+                            fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: const Color(0xFF3C2A1E),
+                            color: Color(0xFF3C2A1E),
                           ),
                         ),
                       ),
@@ -614,9 +557,10 @@ class _BookingScreenState extends State<BookingScreen> {
                         ),
                         child: Text(
                           '₱${room.hourlyRate.toStringAsFixed(0)}/hour',
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          style: const TextStyle(
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: const Color(0xFF8B4513),
+                            color: Color(0xFF8B4513),
                           ),
                         ),
                       ),
@@ -627,8 +571,9 @@ class _BookingScreenState extends State<BookingScreen> {
                   // Description with vintage styling
                   Text(
                     room.description,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: const Color(0xFF8B7355),
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color: Color(0xFF8B7355),
                       height: 1.5,
                     ),
                   ),
@@ -783,6 +728,180 @@ class _BookingScreenState extends State<BookingScreen> {
     );
   }
 
+  Widget _buildSummaryRow(String label, String value, {bool isTotal = false}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
+              color: isTotal ? Theme.of(context).primaryColor : null,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _formatTimeOfDay(TimeOfDay time) {
+    final hour = time.hourOfPeriod;
+    final minute = time.minute.toString().padLeft(2, '0');
+    final period = time.period == DayPeriod.am ? 'AM' : 'PM';
+    return '${hour == 0 ? 12 : hour}:$minute $period';
+  }
+
+  Future<void> _selectStartTime(BuildContext context) async {
+    final time = await showTimePicker(
+      context: context,
+      initialTime: _startTime,
+    );
+    if (time != null) {
+      setState(() {
+        _startTime = time;
+        // Ensure end time is after start time
+        if (_endTime.hour < _startTime.hour || 
+            (_endTime.hour == _startTime.hour && _endTime.minute <= _startTime.minute)) {
+          _endTime = TimeOfDay(hour: _startTime.hour + 1, minute: _startTime.minute);
+        }
+      });
+    }
+  }
+
+  Future<void> _selectEndTime(BuildContext context) async {
+    final time = await showTimePicker(
+      context: context,
+      initialTime: _endTime,
+    );
+    if (time != null && (time.hour > _startTime.hour || 
+        (time.hour == _startTime.hour && time.minute > _startTime.minute))) {
+      setState(() => _endTime = time);
+    } else if (time != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('End time must be after start time')),
+      );
+    }
+  }
+
+  double _calculateDuration() {
+    final startMinutes = _startTime.hour * 60 + _startTime.minute;
+    final endMinutes = _endTime.hour * 60 + _endTime.minute;
+    return (endMinutes - startMinutes) / 60.0;
+  }
+
+  double _calculateTotalCost() {
+    if (_selectedRoom == null) return 0.0;
+    return _selectedRoom!.hourlyRate * _calculateDuration();
+  }
+
+  void _bookRoom(BuildContext context, ReservationProvider provider) {
+    if (!_formKey.currentState!.validate()) return;
+    if (_selectedRoom == null) return;
+
+    final startDateTime = DateTime(
+      _selectedDate.year,
+      _selectedDate.month,
+      _selectedDate.day,
+      _startTime.hour,
+      _startTime.minute,
+    );
+    
+    final endDateTime = DateTime(
+      _selectedDate.year,
+      _selectedDate.month,
+      _selectedDate.day,
+      _endTime.hour,
+      _endTime.minute,
+    );
+
+    // Check if room is available
+    if (!provider.isRoomAvailable(_selectedRoom!.id, _selectedDate, startDateTime, endDateTime)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Room is not available at the selected time')),
+      );
+      return;
+    }
+
+    final reservation = Reservation(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      customerName: _nameController.text,
+      customerEmail: _emailController.text,
+      customerPhone: _phoneController.text,
+      roomId: _selectedRoom!.id,
+      roomName: _selectedRoom!.name,
+      date: _selectedDate,
+      startTime: startDateTime,
+      endTime: endDateTime,
+      numberOfPeople: _numberOfPeople,
+      purpose: _purposeController.text,
+      specialRequests: _specialRequestsController.text.isNotEmpty 
+          ? _specialRequestsController.text 
+          : null,
+      totalCost: _calculateTotalCost(),
+      createdAt: DateTime.now(),
+    );
+
+    provider.addReservation(reservation);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Room booked successfully!')),
+    );
+
+    context.go('/reservations');
+  }
+
+  // Vintage styling helper methods
+  Widget _buildVintageSection(
+    BuildContext context, {
+    required String title,
+    required IconData icon,
+    required Widget child,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF8B4513).withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  icon,
+                  size: 20,
+                  color: const Color(0xFF8B4513),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF3C2A1E),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        child,
+      ],
+    );
+  }
+
   Widget _buildTimeSelector(
     BuildContext context,
     String title,
@@ -865,182 +984,6 @@ class _BookingScreenState extends State<BookingScreen> {
         iconSize: 20,
       ),
     );
-  }
-
-  Widget _buildVintageTextField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    String? Function(String?)? validator,
-    TextInputType? keyboardType,
-    int? maxLines,
-  }) {
-    return TextFormField(
-      controller: controller,
-      validator: validator,
-      keyboardType: keyboardType,
-      maxLines: maxLines ?? 1,
-      style: const TextStyle(
-        fontSize: 16,
-        color: Color(0xFF3C2A1E),
-      ),
-      decoration: InputDecoration(
-        labelText: label,
-        labelStyle: const TextStyle(
-          color: Color(0xFF8B7355),
-          fontWeight: FontWeight.w500,
-        ),
-        prefixIcon: Icon(
-          icon,
-          color: const Color(0xFF8B4513),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFFE8DCC6)),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFFE8DCC6), width: 2),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF8B4513), width: 2),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.red, width: 2),
-        ),
-        filled: true,
-        fillColor: const Color(0xFFFAF0E6).withOpacity(0.3),
-      ),
-    );
-  }
-
-  Widget _buildSummaryRow(String label, String value, {bool isTotal = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: isTotal ? 16 : 14,
-              fontWeight: isTotal ? FontWeight.w600 : FontWeight.w500,
-              color: const Color(0xFF3C2A1E),
-            ),
-          ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: isTotal ? 18 : 14,
-              fontWeight: FontWeight.w600,
-              color: isTotal ? const Color(0xFF8B4513) : const Color(0xFF3C2A1E),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  String _formatTimeOfDay(TimeOfDay time) {
-    final now = DateTime.now();
-    final dateTime = DateTime(now.year, now.month, now.day, time.hour, time.minute);
-    return DateFormat('h:mm a').format(dateTime);
-  }
-
-  Future<void> _selectStartTime(BuildContext context) async {
-    final TimeOfDay? time = await showTimePicker(
-      context: context,
-      initialTime: _startTime,
-    );
-    
-    if (time != null) {
-      setState(() {
-        _startTime = time;
-        // Ensure end time is after start time
-        if (_endTime.hour < _startTime.hour ||
-            (_endTime.hour == _startTime.hour && _endTime.minute <= _startTime.minute)) {
-          _endTime = TimeOfDay(hour: _startTime.hour + 1, minute: _startTime.minute);
-        }
-      });
-    }
-  }
-
-  Future<void> _selectEndTime(BuildContext context) async {
-    final TimeOfDay? time = await showTimePicker(
-      context: context,
-      initialTime: _endTime,
-    );
-    if (time != null && (time.hour > _startTime.hour ||
-        (time.hour == _startTime.hour && time.minute > _startTime.minute))) {
-      setState(() {
-        _endTime = time;
-      });
-    }
-  }
-
-  int _calculateDuration() {
-    return _endTime.hour - _startTime.hour;
-  }
-
-  double _calculateTotalCost() {
-    if (_selectedRoom == null) return 0.0;
-    final duration = _calculateDuration();
-    return _selectedRoom!.hourlyRate * duration;
-  }
-
-  void _submitBooking() {
-    if (!_formKey.currentState!.validate() || _selectedRoom == null) {
-      return;
-    }
-
-    final startDateTime = DateTime(
-      _selectedDate.year,
-      _selectedDate.month,
-      _selectedDate.day,
-      _startTime.hour,
-      _startTime.minute,
-    );
-
-    final endDateTime = DateTime(
-      _selectedDate.year,
-      _selectedDate.month,
-      _selectedDate.day,
-      _endTime.hour,
-      _endTime.minute,
-    );
-
-    final reservation = Reservation(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
-      customerName: _nameController.text,
-      customerEmail: _emailController.text,
-      customerPhone: _phoneController.text,
-      roomId: _selectedRoom!.id,
-      roomName: _selectedRoom!.name,
-      date: _selectedDate,
-      startTime: startDateTime,
-      endTime: endDateTime,
-      numberOfPeople: _numberOfPeople,
-      purpose: _purposeController.text,
-      status: ReservationStatus.confirmed,
-      specialRequests: _specialRequestsController.text.isNotEmpty
-          ? _specialRequestsController.text
-          : null,
-      totalCost: _calculateTotalCost(),
-      createdAt: DateTime.now(),
-    );
-
-    context.read<ReservationProvider>().addReservation(reservation);
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Room booked successfully!'),
-        backgroundColor: Color(0xFF8B4513),
-      ),
-    );
-
-    context.go('/reservations');
   }
 }
 

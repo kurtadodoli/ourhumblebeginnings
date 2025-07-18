@@ -114,18 +114,75 @@ class ReservationsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header with room name and status
+            // Header with room name, image, and status
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text(
-                    reservation.roomName,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                // Small room image
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: Consumer<ReservationProvider>(
+                      builder: (context, reservationProvider, child) {
+                        final room = reservationProvider.rooms
+                            .where((r) => r.id == reservation.roomId)
+                            .firstOrNull;
+                        
+                        if (room?.imageUrl != null) {
+                          return Image.asset(
+                            room!.imageUrl!,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                color: Colors.grey[300],
+                                child: const Icon(
+                                  Icons.meeting_room,
+                                  color: Colors.grey,
+                                  size: 30,
+                                ),
+                              );
+                            },
+                          );
+                        } else {
+                          return Container(
+                            color: Colors.grey[300],
+                            child: const Icon(
+                              Icons.meeting_room,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
+                          );
+                        }
+                      },
+                    ),
                   ),
                 ),
+                const SizedBox(width: 12),
+                
+                // Room name and details
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        reservation.roomName,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Reservation #${reservation.id}',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: Colors.grey[600],
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+                
+                // Status badge
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
@@ -205,7 +262,7 @@ class ReservationsScreen extends StatelessWidget {
                 Icon(Icons.attach_money, size: 16, color: Colors.grey[600]),
                 const SizedBox(width: 8),
                 Text(
-                  'Total: \$${reservation.totalCost.toStringAsFixed(2)}',
+                  'Total: ₱${reservation.totalCost.toStringAsFixed(2)}',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,

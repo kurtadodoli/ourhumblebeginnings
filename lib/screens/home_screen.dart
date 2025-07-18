@@ -136,21 +136,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      const Text(
-                        'HUMBLE BEGINNINGS',
-                        style: TextStyle(
-                          fontSize: 18,
+                      Text(
+                        'OUR HUMBLE BEGINNINGS',
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF3C2A1E),
+                          color: const Color(0xFF3C2A1E),
                           letterSpacing: 2.0,
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Cafe + Gift Shop',
-                        style: TextStyle(
-                          fontSize: 12,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w400,
-                          color: Color(0xFF8B7355),
+                          color: const Color(0xFF8B7355),
                           letterSpacing: 1.0,
                         ),
                       ),

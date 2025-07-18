@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // Vintage Café Color Palette inspired by warm, cozy atmosphere
@@ -22,6 +23,132 @@ class AppTheme {
   static const Color errorRed = Color(0xFFB85450);        // Vintage red
   static const Color infoBlue = Color(0xFF4682B4);
 
+  // Modern Minimalist Typography Configuration
+  static TextTheme get _modernTextTheme {
+    // Inter - Modern, clean, and highly legible font for body text
+    final baseFont = GoogleFonts.inter();
+    
+    // Poppins - Modern, rounded font for headings and display text
+    final headingFont = GoogleFonts.poppins();
+    
+    return TextTheme(
+      // Display styles - for large text, hero sections
+      displayLarge: headingFont.copyWith(
+        fontSize: 32,
+        fontWeight: FontWeight.w300,
+        color: textPrimary,
+        letterSpacing: -1.0,
+        height: 1.2,
+      ),
+      displayMedium: headingFont.copyWith(
+        fontSize: 28,
+        fontWeight: FontWeight.w400,
+        color: textPrimary,
+        letterSpacing: -0.5,
+        height: 1.3,
+      ),
+      displaySmall: headingFont.copyWith(
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: textPrimary,
+        letterSpacing: -0.25,
+        height: 1.3,
+      ),
+      
+      // Headline styles - for page titles, section headers
+      headlineLarge: headingFont.copyWith(
+        fontSize: 24,
+        fontWeight: FontWeight.w600,
+        color: textPrimary,
+        letterSpacing: -0.5,
+        height: 1.3,
+      ),
+      headlineMedium: headingFont.copyWith(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: textPrimary,
+        letterSpacing: -0.25,
+        height: 1.4,
+      ),
+      headlineSmall: headingFont.copyWith(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: textPrimary,
+        letterSpacing: 0,
+        height: 1.4,
+      ),
+      
+      // Title styles - for card headers, dialog titles
+      titleLarge: baseFont.copyWith(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: textPrimary,
+        letterSpacing: 0,
+        height: 1.4,
+      ),
+      titleMedium: baseFont.copyWith(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: textPrimary,
+        letterSpacing: 0.1,
+        height: 1.5,
+      ),
+      titleSmall: baseFont.copyWith(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: textPrimary,
+        letterSpacing: 0.1,
+        height: 1.5,
+      ),
+      
+      // Body styles - for main content, descriptions
+      bodyLarge: baseFont.copyWith(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: textPrimary,
+        letterSpacing: 0.1,
+        height: 1.6,
+      ),
+      bodyMedium: baseFont.copyWith(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: textSecondary,
+        letterSpacing: 0.15,
+        height: 1.5,
+      ),
+      bodySmall: baseFont.copyWith(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: textSecondary,
+        letterSpacing: 0.2,
+        height: 1.4,
+      ),
+      
+      // Label styles - for buttons, form labels
+      labelLarge: baseFont.copyWith(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: textPrimary,
+        letterSpacing: 0.3,
+        height: 1.4,
+      ),
+      labelMedium: baseFont.copyWith(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: textPrimary,
+        letterSpacing: 0.4,
+        height: 1.3,
+      ),
+      labelSmall: baseFont.copyWith(
+        fontSize: 10,
+        fontWeight: FontWeight.w500,
+        color: textSecondary,
+        letterSpacing: 0.5,
+        height: 1.3,
+      ),
+    );
+  }
+
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
@@ -34,20 +161,23 @@ class AppTheme {
         error: errorRed,
       ),
       
-      // App Bar Theme - Vintage café style
-      appBarTheme: const AppBarTheme(
+      // Modern Typography
+      textTheme: _modernTextTheme,
+      
+      // App Bar Theme - Vintage café style with modern typography
+      appBarTheme: AppBarTheme(
         backgroundColor: creamWhite,
         foregroundColor: textPrimary,
         centerTitle: false,
         elevation: 0,
         scrolledUnderElevation: 1,
-        titleTextStyle: TextStyle(
+        titleTextStyle: GoogleFonts.poppins(
           fontSize: 24,
           fontWeight: FontWeight.w600,
           color: textPrimary,
           letterSpacing: -0.5,
         ),
-        iconTheme: IconThemeData(color: textPrimary),
+        iconTheme: const IconThemeData(color: textPrimary),
       ),
       
       // Card Theme - Vintage style with warm tones
@@ -62,7 +192,7 @@ class AppTheme {
         margin: const EdgeInsets.symmetric(vertical: 6),
       ),
       
-      // Elevated Button Theme - Vintage café style
+      // Elevated Button Theme - Modern minimalist style
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
@@ -73,27 +203,28 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          textStyle: const TextStyle(
+          textStyle: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            letterSpacing: 0.5,
+            letterSpacing: 0.3,
           ),
         ),
       ),
       
-      // Text Button Theme
+      // Text Button Theme - Modern style
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: textSecondary,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          textStyle: const TextStyle(
+          textStyle: GoogleFonts.inter(
             fontSize: 14,
             fontWeight: FontWeight.w500,
+            letterSpacing: 0.3,
           ),
         ),
       ),
       
-      // Input Decoration Theme
+      // Input Decoration Theme - Modern minimalist style
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -109,16 +240,27 @@ class AppTheme {
         ),
         filled: true,
         fillColor: backgroundColor,
-        labelStyle: const TextStyle(color: textSecondary),
-        floatingLabelStyle: const TextStyle(color: accentColor),
+        labelStyle: GoogleFonts.inter(
+          color: textSecondary,
+          fontWeight: FontWeight.w500,
+        ),
+        floatingLabelStyle: GoogleFonts.inter(
+          color: accentColor,
+          fontWeight: FontWeight.w500,
+        ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       ),
       
-      // Chip Theme
+      // Chip Theme - Modern minimalist style
       chipTheme: ChipThemeData(
         backgroundColor: backgroundColor,
         selectedColor: accentColor.withValues(alpha: 0.1),
-        labelStyle: const TextStyle(color: textPrimary, fontWeight: FontWeight.w500),
+        labelStyle: GoogleFonts.inter(
+          color: textPrimary,
+          fontWeight: FontWeight.w500,
+          fontSize: 12,
+          letterSpacing: 0.3,
+        ),
         secondarySelectedColor: accentColor,
         checkmarkColor: accentColor,
         side: const BorderSide(color: dividerColor),
@@ -150,60 +292,6 @@ class AppTheme {
         thickness: 1,
         space: 24,
       ),
-      
-      // Text Theme
-      textTheme: const TextTheme(
-        displayLarge: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.w300,
-          color: textPrimary,
-          letterSpacing: -1.5,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 28,
-          fontWeight: FontWeight.w400,
-          color: textPrimary,
-          letterSpacing: -0.5,
-        ),
-        headlineLarge: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-          color: textPrimary,
-          letterSpacing: -0.5,
-        ),
-        headlineMedium: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: textPrimary,
-        ),
-        titleLarge: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: textPrimary,
-        ),
-        titleMedium: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: textPrimary,
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: textPrimary,
-          height: 1.5,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-          color: textSecondary,
-          height: 1.4,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          color: textSecondary,
-        ),
-      ),
     );
   }
 
@@ -219,13 +307,25 @@ class AppTheme {
         error: errorRed,
       ),
       
-      // App Bar Theme
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF1E1E1E),
+      // Modern Typography for dark theme
+      textTheme: _modernTextTheme.apply(
+        bodyColor: Colors.white,
+        displayColor: Colors.white,
+      ),
+      
+      // App Bar Theme - Modern dark style
+      appBarTheme: AppBarTheme(
+        backgroundColor: const Color(0xFF1E1E1E),
         foregroundColor: Colors.white,
         centerTitle: false,
         elevation: 0,
         scrolledUnderElevation: 1,
+        titleTextStyle: GoogleFonts.poppins(
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          color: Colors.white,
+          letterSpacing: -0.5,
+        ),
       ),
       
       // Card Theme
@@ -238,7 +338,7 @@ class AppTheme {
         color: const Color(0xFF1E1E1E),
       ),
       
-      // Elevated Button Theme
+      // Elevated Button Theme - Modern dark style
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: accentColor,
@@ -248,6 +348,11 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: GoogleFonts.inter(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 0.3,
           ),
         ),
       ),

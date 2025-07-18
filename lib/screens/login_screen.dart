@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> with TickerProviderStateMixin
         ),
         const SizedBox(height: 8),
         const Text(
-          'HUMBLE BEGINNINGS',
+          'OUR HUMBLE BEGINNINGS',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w700,

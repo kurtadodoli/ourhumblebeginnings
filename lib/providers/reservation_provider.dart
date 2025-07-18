@@ -88,39 +88,58 @@ class ReservationProvider with ChangeNotifier {
   }
 
   void loadRooms() {
-    // Sample data - in a real app, this would come from an API
+    // Real room data for Our Humble Beginnings
     _rooms = [
       Room(
         id: '1',
-        name: 'Cozy Corner',
-        description: 'Perfect for intimate family gatherings and small meetings',
-        capacity: 6,
-        hourlyRate: 25.00,
-        amenities: ['WiFi', 'Whiteboard', 'Coffee Service'],
+        name: 'The Coffee Room',
+        description: 'The Coffee Room is best for small meetings, conferences, and other events where guests prefer natural light (during the day).',
+        capacity: 10,
+        hourlyRate: 700.00,
+        amenities: ['WiFi', 'Natural Light', 'Coffee Service', 'Conference Setup'],
+        isAvailable: true,
+        imageUrl: 'assets/caferoom/caferoom1.jpg', // Primary image
+        imageUrls: ['assets/caferoom/caferoom1.jpg'], // Gallery images
+        availabilityDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], // Weekdays only
+        specialNotes: 'Rate is ₱700 per hour (not consumable). Available weekdays only.',
       ),
       Room(
         id: '2',
-        name: 'The Boardroom',
-        description: 'Professional space for business meetings and presentations',
+        name: 'The Cave Room',
+        description: 'The Cave Room is perfect for casual hangouts and meetings, private meals, lounging, and other small gatherings.',
         capacity: 12,
-        hourlyRate: 45.00,
-        amenities: ['WiFi', 'Projector', 'Whiteboard', 'Conference Phone', 'Coffee Service'],
+        hourlyRate: 700.00,
+        amenities: ['WiFi', 'Cozy Atmosphere', 'Private Dining', 'Lounge Setup'],
+        isAvailable: true,
+        imageUrl: 'assets/caveroom/caveroom1.jpg', // Primary image
+        imageUrls: [
+          'assets/caveroom/caveroom1.jpg',
+          'assets/caveroom/caveroom2.jpg',
+          'assets/caveroom/caveroom3.jpg',
+        ], // Gallery images
+        availabilityDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], // All week
+        specialNotes: 'Rate is ₱700 per hour (not consumable). Available Monday - Sunday.',
       ),
       Room(
         id: '3',
-        name: 'Garden View',
-        description: 'Bright room with beautiful garden views, ideal for creative sessions',
-        capacity: 8,
-        hourlyRate: 35.00,
-        amenities: ['WiFi', 'Natural Light', 'Flip Chart', 'Coffee Service'],
-      ),
-      Room(
-        id: '4',
-        name: 'Community Space',
-        description: 'Large open area perfect for workshops and group activities',
-        capacity: 20,
-        hourlyRate: 60.00,
-        amenities: ['WiFi', 'Sound System', 'Projector', 'Moveable Furniture', 'Coffee Service'],
+        name: 'The Humble Annex',
+        description: 'The Humble Annex is great for seated dinners, birthdays, anniversary, celebrations, intimate parties, or workshops.',
+        capacity: 50,
+        hourlyRate: 25000.00, // Base rate for first 3 hours
+        amenities: ['WiFi', 'Event Setup', 'Full Kitchen Access', 'Sound System', 'Large Space', 'Party Setup'],
+        isAvailable: true,
+        imageUrl: 'assets/humbleannex/humbleannex1.jpg', // Primary image
+        imageUrls: [
+          'assets/humbleannex/humbleannex1.jpg',
+          'assets/humbleannex/humbleannex2.jpg',
+          'assets/humbleannex/humbleannex3.jpg',
+          'assets/humbleannex/humbleannex4.jpg',
+          'assets/humbleannex/humbleannex5.jpg',
+          'assets/humbleannex/humbleannex6.jpg',
+          'assets/humbleannex/humbleannex7.jpg',
+        ], // Gallery images
+        availabilityDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], // Monday - Thursday only
+        specialNotes: '₱25,000 for first 3 hours (₱15,000 consumable). Additional ₱3,000 per hour (not consumable). Monday - Thursday only.',
       ),
     ];
     notifyListeners();
@@ -136,14 +155,14 @@ class ReservationProvider with ChangeNotifier {
         customerEmail: 'john@example.com',
         customerPhone: '+1234567890',
         roomId: '1',
-        roomName: 'Cozy Corner',
+        roomName: 'The Coffee Room',
         date: now.add(const Duration(days: 1)),
         startTime: DateTime(now.year, now.month, now.day + 1, 10, 0),
         endTime: DateTime(now.year, now.month, now.day + 1, 12, 0),
         numberOfPeople: 4,
-        purpose: 'Family Meeting',
+        purpose: 'Team Meeting',
         status: ReservationStatus.confirmed,
-        totalCost: 50.00,
+        totalCost: 1400.00, // 2 hours * ₱700
         createdAt: now.subtract(const Duration(days: 2)),
       ),
       Reservation(
@@ -152,15 +171,15 @@ class ReservationProvider with ChangeNotifier {
         customerEmail: 'sarah@company.com',
         customerPhone: '+1987654321',
         roomId: '2',
-        roomName: 'The Boardroom',
+        roomName: 'The Cave Room',
         date: now.add(const Duration(days: 3)),
         startTime: DateTime(now.year, now.month, now.day + 3, 14, 0),
         endTime: DateTime(now.year, now.month, now.day + 3, 16, 0),
         numberOfPeople: 8,
-        purpose: 'Business Presentation',
+        purpose: 'Birthday Celebration',
         status: ReservationStatus.confirmed,
-        specialRequests: 'Need extra chairs',
-        totalCost: 90.00,
+        specialRequests: 'Birthday decorations setup',
+        totalCost: 1400.00, // 2 hours * ₱700
         createdAt: now.subtract(const Duration(days: 1)),
       ),
     ];
