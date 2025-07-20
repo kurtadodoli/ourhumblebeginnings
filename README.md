@@ -152,7 +152,7 @@ dependencies:
 - [ ] Admin dashboard for management
 - [ ] Reviews and ratings system
 - [ ] Loyalty program and rewards
-- [ ] Social media integration
+
 
 
 
