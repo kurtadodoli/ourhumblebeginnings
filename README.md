@@ -150,7 +150,6 @@ dependencies:
 - [ ] Online payment integration (Stripe/PayPal)
 - [ ] Push notifications for reservations
 - [ ] Admin dashboard for management
-- [ ] Reviews and ratings system
 
 
 
