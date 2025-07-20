@@ -154,7 +154,7 @@ dependencies:
 - [ ] Loyalty program and rewards
 - [ ] Social media integration
 - [ ] Advanced analytics
-- [ ] Offline mode support
+
 
 
 ## 📞 Support
