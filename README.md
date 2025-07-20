@@ -151,7 +151,7 @@ dependencies:
 - [ ] Push notifications for reservations
 - [ ] Admin dashboard for management
 - [ ] Reviews and ratings system
-- [ ] Loyalty program and rewards
+
 
 
 
