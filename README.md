@@ -155,7 +155,6 @@ dependencies:
 - [ ] Social media integration
 - [ ] Advanced analytics
 - [ ] Offline mode support
-- [ ] Multi-language support
 
 ## 📞 Support
 
