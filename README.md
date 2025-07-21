@@ -148,7 +148,6 @@ dependencies:
 ## 🚧 Future Enhancements
 
 - [ ] Online payment integration (Stripe/PayPal)
-- [ ] Push notifications for reservations
 
 
 
