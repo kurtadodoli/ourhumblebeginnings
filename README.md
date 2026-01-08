@@ -160,7 +160,7 @@ For questions about setup or development:
 - Review Flutter documentation for app development
 - Create GitHub issues for bugs or feature requests
 
-## 📄 License
+
 
 This project is proprietary software for Our Humble Beginnings café.
 
