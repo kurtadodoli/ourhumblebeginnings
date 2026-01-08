@@ -141,7 +141,7 @@ dependencies:
 
 - **Row Level Security (RLS)** on all database tables
 - **Guest mode** for exploring without accounts
-- **Secure credential management**
+
 
 
 
