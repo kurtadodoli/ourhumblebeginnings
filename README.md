@@ -129,7 +129,7 @@ dependencies:
   flutter: sdk
   provider: ^6.1.2              # State management
   go_router: ^14.2.0           # Navigation
-  supabase_flutter: ^2.3.4     # Backend & auth
+
 
 
 
