@@ -140,7 +140,7 @@ dependencies:
 ## 🔒 Security Features
 
 - **Row Level Security (RLS)** on all database tables
-- **Guest mode** for exploring without accounts
+
 
 
 
