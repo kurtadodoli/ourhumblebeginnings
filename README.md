@@ -156,7 +156,6 @@ dependencies:
 ## 📞 Support
 
 For questions about setup or development:
-- Check `SUPABASE_SETUP.md` for backend setup
 
 
 
