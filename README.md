@@ -133,7 +133,7 @@ dependencies:
   table_calendar: ^3.0.9       # Calendar widget
   image_picker: ^1.1.1         # Image handling
   shared_preferences: ^2.2.3   # Local storage
-  intl: ^0.19.0                # Date formatting
+
 
 
 
