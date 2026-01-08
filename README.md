@@ -132,7 +132,7 @@ dependencies:
   supabase_flutter: ^2.3.4     # Backend & auth
   table_calendar: ^3.0.9       # Calendar widget
   image_picker: ^1.1.1         # Image handling
-  shared_preferences: ^2.2.3   # Local storage
+
 
 
 
