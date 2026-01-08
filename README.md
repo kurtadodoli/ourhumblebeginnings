@@ -137,7 +137,6 @@ dependencies:
   http: ^1.2.1                 # HTTP requests
 ```
 
-## 🔒 Security Features
 
 
 
