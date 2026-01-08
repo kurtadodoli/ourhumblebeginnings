@@ -165,4 +165,3 @@ This project is proprietary software for Our Humble Beginnings café.
 
 ---
 
-*Built with ❤️ for the Our Humble Beginnings community*
