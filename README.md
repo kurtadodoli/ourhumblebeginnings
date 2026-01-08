@@ -134,7 +134,7 @@ dependencies:
   image_picker: ^1.1.1         # Image handling
   shared_preferences: ^2.2.3   # Local storage
   intl: ^0.19.0                # Date formatting
-  http: ^1.2.1                 # HTTP requests
+
 
 
 
