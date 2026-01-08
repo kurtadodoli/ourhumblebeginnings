@@ -143,7 +143,6 @@ dependencies:
 - **Guest mode** for exploring without accounts
 - **Secure credential management**
 - **Input validation** and error handling
-- **Protected routes** for authenticated features
 
 
 
