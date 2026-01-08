@@ -155,8 +155,6 @@ dependencies:
 
 ## 📞 Support
 
-For questions about setup or development:
-
 
 
 
