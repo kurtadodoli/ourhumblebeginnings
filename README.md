@@ -163,5 +163,5 @@ For questions about setup or development:
 
 This project is proprietary software for Our Humble Beginnings café.
 
----
+
 
