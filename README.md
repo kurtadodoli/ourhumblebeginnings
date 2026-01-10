@@ -120,7 +120,6 @@ The app features a **vintage café aesthetic** inspired by warm, cozy coffee sho
 - **Color Palette**: Coffee browns, cream whites, and warm beiges
 - **Typography**: Clean, readable fonts with proper hierarchy
 - **Images**: Real photos from your café space
-- **User Experience**: Intuitive navigation with guest-friendly design
 
 
 
