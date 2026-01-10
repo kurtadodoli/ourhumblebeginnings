@@ -119,7 +119,7 @@ This app uses **Supabase** for backend services. See `SUPABASE_SETUP.md` for:
 The app features a **vintage café aesthetic** inspired by warm, cozy coffee shop atmospheres:
 - **Color Palette**: Coffee browns, cream whites, and warm beiges
 - **Typography**: Clean, readable fonts with proper hierarchy
-- **Images**: Real photos from your café space
+
 
 
 
