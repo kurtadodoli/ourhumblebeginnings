@@ -114,7 +114,6 @@ This app uses **Supabase** for backend services. See `SUPABASE_SETUP.md` for:
 - Row Level Security policies
 - Sample data insertion
 
-## 🎨 Design Philosophy
 
 
 
