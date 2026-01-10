@@ -122,7 +122,6 @@ The app features a **vintage café aesthetic** inspired by warm, cozy coffee sho
 - **Images**: Real photos from your café space
 - **User Experience**: Intuitive navigation with guest-friendly design
 
-## 📋 Key Dependencies
 
 
 
