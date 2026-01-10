@@ -112,7 +112,6 @@ This app uses **Supabase** for backend services. See `SUPABASE_SETUP.md` for:
 - Database schema setup
 - Authentication configuration
 - Row Level Security policies
-- Sample data insertion
 
 
 
