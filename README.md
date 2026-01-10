@@ -128,7 +128,6 @@ The app features a **vintage café aesthetic** inspired by warm, cozy coffee sho
 dependencies:
   flutter: sdk
   provider: ^6.1.2              # State management
-  go_router: ^14.2.0           # Navigation
 
 
 
