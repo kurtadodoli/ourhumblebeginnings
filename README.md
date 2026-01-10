@@ -124,7 +124,7 @@ The app features a **vintage café aesthetic** inspired by warm, cozy coffee sho
 
 ## 📋 Key Dependencies
 
-```yaml
+
 
 
 
