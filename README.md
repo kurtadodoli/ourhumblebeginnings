@@ -127,7 +127,7 @@ The app features a **vintage café aesthetic** inspired by warm, cozy coffee sho
 ```yaml
 dependencies:
   flutter: sdk
-  provider: ^6.1.2              # State management
+
 
 
 
