@@ -116,7 +116,7 @@ This app uses **Supabase** for backend services. See `SUPABASE_SETUP.md` for:
 
 ## 🎨 Design Philosophy
 
-The app features a **vintage café aesthetic** inspired by warm, cozy coffee shop atmospheres:
+
 
 
 
