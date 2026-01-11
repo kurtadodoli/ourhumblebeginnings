@@ -91,7 +91,6 @@ lib/
    cd ourhumblebeginnings
    ```
 
-2. **Install dependencies:**
 
 
 
