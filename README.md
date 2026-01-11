@@ -108,7 +108,7 @@ lib/
 ## 🔧 Backend Setup
 
 This app uses **Supabase** for backend services. See `SUPABASE_SETUP.md` for:
-- Creating your Supabase project
+
 
 
 
