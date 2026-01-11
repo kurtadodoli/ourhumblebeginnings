@@ -96,7 +96,6 @@ lib/
    flutter pub get
    ```
 
-3. **Set up Supabase backend:**
 
 
 
