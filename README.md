@@ -105,7 +105,6 @@ lib/
    flutter run
    ```
 
-## 🔧 Backend Setup
 
 
 
