@@ -98,7 +98,7 @@ lib/
 
 3. **Set up Supabase backend:**
    - Follow the detailed instructions in `SUPABASE_SETUP.md`
-   - Update `lib/config/supabase_config.dart` with your credentials
+
 
 
 
