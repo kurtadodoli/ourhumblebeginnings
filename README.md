@@ -100,7 +100,7 @@ lib/
    - Follow the detailed instructions in `SUPABASE_SETUP.md`
    - Update `lib/config/supabase_config.dart` with your credentials
 
-4. **Run the app:**
+
 
 
 
