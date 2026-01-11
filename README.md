@@ -97,7 +97,6 @@ lib/
    ```
 
 3. **Set up Supabase backend:**
-   - Follow the detailed instructions in `SUPABASE_SETUP.md`
 
 
 
