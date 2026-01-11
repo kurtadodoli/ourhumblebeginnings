@@ -101,7 +101,7 @@ lib/
    - Update `lib/config/supabase_config.dart` with your credentials
 
 4. **Run the app:**
-   ```bash
+
 
 
 
