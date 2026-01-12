@@ -83,7 +83,7 @@ lib/
 - Android Studio / VS Code with Flutter extensions
 - Supabase account (for backend)
 
-### Installation
+
 
 
 
