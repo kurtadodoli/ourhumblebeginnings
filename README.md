@@ -81,7 +81,7 @@ lib/
 - Flutter SDK (3.7.2 or higher)
 - Dart SDK
 - Android Studio / VS Code with Flutter extensions
-- Supabase account (for backend)
+
 
 
 
