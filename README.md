@@ -74,7 +74,7 @@ lib/
     └── theme.dart               # Vintage color theme
 ```
 
-## 🚀 Getting Started
+
 
 
 
