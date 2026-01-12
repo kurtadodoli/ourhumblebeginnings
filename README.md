@@ -79,7 +79,7 @@ lib/
 ### Prerequisites
 
 - Flutter SDK (3.7.2 or higher)
-- Dart SDK
+
 
 
 
