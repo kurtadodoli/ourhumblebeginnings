@@ -58,7 +58,7 @@ lib/
 │   ├── gift_shop_item.dart
 │   ├── reservation.dart
 │   └── room.dart
-├── providers/                   # State management
+
 
 
 
