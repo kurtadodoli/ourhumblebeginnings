@@ -50,7 +50,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf�
 
 ```
 lib/
-├── main.dart                    # App entry point and routing
+
 
 
 
