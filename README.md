@@ -49,7 +49,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy cafÃ
 ## ğŸ“± Project Structure
 
 ```
-lib/
+
 
 
 
