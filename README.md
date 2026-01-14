@@ -66,7 +66,6 @@ lib/
 ├── screens/                     # UI screens
 │   ├── home_screen.dart         # Main landing page
 │   ├── login_screen.dart        # Authentication
-│   ├── cafe_menu_screen.dart
 
 
 
