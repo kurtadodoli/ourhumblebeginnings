@@ -62,7 +62,7 @@ lib/
 │   ├── app_provider.dart
 │   ├── auth_provider.dart       # Authentication logic
 │   ├── cafe_provider.dart
-│   └── reservation_provider.dart
+
 
 
 
