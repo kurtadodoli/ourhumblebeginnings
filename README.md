@@ -64,7 +64,7 @@ lib/
 │   ├── cafe_provider.dart
 │   └── reservation_provider.dart
 ├── screens/                     # UI screens
-│   ├── home_screen.dart         # Main landing page
+
 
 
 
