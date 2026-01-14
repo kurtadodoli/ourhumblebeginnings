@@ -53,7 +53,7 @@ lib/
 ├── main.dart                    # App entry point and routing
 ├── config/
 │   └── supabase_config.dart     # Backend configuration
-├── models/                      # Data models
+
 
 
 
