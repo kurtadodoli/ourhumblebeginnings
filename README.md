@@ -65,7 +65,7 @@ lib/
 │   └── reservation_provider.dart
 ├── screens/                     # UI screens
 │   ├── home_screen.dart         # Main landing page
-│   ├── login_screen.dart        # Authentication
+
 
 
 
