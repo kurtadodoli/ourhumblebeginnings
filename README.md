@@ -44,7 +44,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf√
 - **Go Router** for navigation
 - **Material Design 3** with custom vintage theming
 - **Table Calendar** for booking management
-- **Cross-platform** support for Android and iOS
+
 
 
 
