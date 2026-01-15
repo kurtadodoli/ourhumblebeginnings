@@ -46,7 +46,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy cafÃ
 - **Table Calendar** for booking management
 - **Cross-platform** support for Android and iOS
 
-## ðŸ“± Project Structure
+
 
 
 
