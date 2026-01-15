@@ -40,7 +40,6 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf√
 
 - **Flutter 3.29.2** with Dart 3.7.2
 - **Supabase + PostgreSQL** for backend and authentication
-- **Provider** with custom vintage theming for state management
 
 
 
