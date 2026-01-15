@@ -36,7 +36,6 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf�
 - **Logo Integration**: Your café logo prominently displayed
 - **Photo Gallery**: Showcase your cozy space
 
-## 🛠️ Technical Stack
 
 
 
