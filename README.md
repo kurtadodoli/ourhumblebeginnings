@@ -40,9 +40,9 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf√
 
 - **Flutter 3.29.2** with Dart 3.7.2
 - **Supabase + PostgreSQL** for backend and authentication
-- **Provider** for state management
+- **Provider** with custom vintage theming for state management
 - **Go Router** for navigation
-- **Material Design 3** with custom vintage theming
+
 
 
 
