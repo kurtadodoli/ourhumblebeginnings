@@ -32,7 +32,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf�
 
 ### 🖼️ Visual Experience
 - **Vintage Design**: Warm café-inspired color palette
-- **Real Images**: Your act
+- **Real Images**: Your ac
 
 
 
