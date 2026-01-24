@@ -31,7 +31,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf�
 - **Profile Management**: User profiles and preferences
 
 ### 🖼️ Visual Experience
-- **Vintage Design**: Wa
+- **Vintage Design**: W
 
 
 
