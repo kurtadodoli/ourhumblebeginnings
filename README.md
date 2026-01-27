@@ -30,7 +30,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf�
 - **Supabase Integration**: Secure backend with PostgreSQL
 - **Profile Management**: User profiles and preferences
 
-### 🖼️ Visua
+### 🖼️ Visu
 
 
 
