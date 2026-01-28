@@ -28,7 +28,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf√
 - **User Accounts**: Full registration and login system
 - **Guest Mode**: Explore the app without signing up
 - **Supabase Integration**: Secure backend with PostgreSQL
-- **Profile Management**: User profi
+- **Profile Management**: User prof
 
 
 
