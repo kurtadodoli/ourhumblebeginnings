@@ -26,7 +26,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy cafÃ
 
 ### ğŸ” Authentication System
 - **User Accounts**: Full registration and login system
-- **Guest Mode**: Explore the a
+- **Guest Mode**: Explore the 
 
 
 
