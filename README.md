@@ -22,7 +22,7 @@ A beautiful Flutter mobile application for "Our Humble Beginnings" - a cozy caf√
 - Interactive calendar for date selection
 - Time slot booking system with real-time availability
 - Multiple room options with different capacities
-- Amenity information and special req
+- Amenity information and special re
 
 
 
